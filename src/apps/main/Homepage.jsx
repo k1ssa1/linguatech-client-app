@@ -3,6 +3,7 @@ import Navbar from "../../components/navigation/navbar/Navbar";
 import {Helmet} from "react-helmet";
 import Services from "../../components/services/Services";
 import Hero from "../../components/hero/Hero";
+import Pricing from "../../components/pricing/Pricing";
 
 const Homepage = () => {
     return ( 
@@ -13,6 +14,7 @@ const Homepage = () => {
             <Navbar/>
             <Hero/>
             <Services/>
+            <Pricing/>
             <Contact/>
         </>
      );
