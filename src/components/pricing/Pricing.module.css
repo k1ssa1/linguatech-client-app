@@ -131,3 +131,63 @@
     background: linear-gradient(to right, #0f0c29, #302b63, #24243e);
     color: #F5F5F5
 }
+
+
+@media screen and (max-width: 1024px) and (min-width: 769px){
+    .card_collection{
+        grid-template-columns: 1fr;
+        margin: 2rem 0
+    }
+
+    .card{
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-around;
+    }
+
+    .card_head{
+        border-bottom: 0;
+    }
+}
+
+
+@media screen and (max-width: 768px){
+    .card_collection{
+        grid-template-columns: 1fr;
+        margin: 2rem 1rem;
+    }
+
+    .header{
+        text-align: center;
+    }
+
+    .header p {
+        padding: 0 2rem;
+    }
+
+    .btn_group{
+        flex-direction: row;
+        padding: 1rem;
+    }
+
+    .btn_group button{
+        width: 100%;
+        margin: 0 0 1rem 0;
+    }
+
+    .card{
+        padding: 2rem 1rem
+    }
+
+    .card p{
+        font-size: 1.5rem;
+    }
+
+    .card h4{
+        font-size: 1.25rem;
+    }
+
+    .card body ul li{
+        font-size: 0.85rem
+    }
+}
