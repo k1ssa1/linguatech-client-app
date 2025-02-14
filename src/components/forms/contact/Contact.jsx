@@ -2,6 +2,8 @@ import { useState } from "react";
 
 import styles from "./Contact.module.css"
 
+import { ToastContainer, toast } from 'react-toastify';
+
 const Contact = () => {
 
     const [contactData, setContactData] = useState({
@@ -11,6 +13,8 @@ const Contact = () => {
         telephone: '',
         message: ''
     })
+
+    const [loading, setLoading] = useState(false);
 
     const handleChange = (e) => {
         const {name, value} = e.target;
@@ -22,6 +26,8 @@ const Contact = () => {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
+        
+        setLoading(true);
 
         try{
             const response = await fetch('https://linguatech-backend.vercel.app/submit-form', {
@@ -34,12 +40,20 @@ const Contact = () => {
 
             if(response.ok){
                 const data = await response.json();
-                setContactData({prenom: '', nom: '', email: '', telephone: '', message: ''})
+                setContactData({prenom: '', nom: '', email: '', telephone: '', message: ''});
+                toast.success('Information sent successfully', {
+                    position: 'bottom-center'
+                })
             }else{
                 throw new Error('Error in form submission')
             }
         }catch(error){
-            console.error(error)
+            console.error(error);
+            toast.error('Something went wrong. Please try again later!', {
+                position: 'bottom-center'
+            })
+        }finally{
+            setLoading(false)
         }
     }
 
@@ -53,27 +67,28 @@ const Contact = () => {
                 <div className={styles.name_section}>
                     <div className={styles.pname_section}>
                         <label htmlFor="prenom" className={styles.label}>First name</label>
-                        <input type="text" name="prenom" placeholder="John" value={contactData.prenom} onChange={handleChange}/>
+                        <input type="text" name="prenom" placeholder="John" value={contactData.prenom} onChange={handleChange} disabled={loading}/>
                     </div>
                     <div className={styles.fname_section}>
                         <label htmlFor="nom" className={styles.label}>Last name</label>
-                        <input type="text" name="nom" placeholder="Doe"  value={contactData.nom} onChange={handleChange}/>
+                        <input type="text" name="nom" placeholder="Doe"  value={contactData.nom} onChange={handleChange} disabled={loading}/>
                     </div>
                 </div>
                 <div className={styles.email_section}>
                     <label htmlFor="email" className={styles.label}>Email</label>
-                    <input type="email" name="email" placeholder="john.doe@example.com"  value={contactData.email} onChange={handleChange}/>
+                    <input type="email" name="email" placeholder="john.doe@example.com"  value={contactData.email} onChange={handleChange} disabled={loading}/>
                 </div>
                 <div className={styles.phone_section}>
                     <label htmlFor="telephone" className={styles.label}>Phone number</label>
-                    <input type="text" name="telephone" placeholder="e.g. +1 (555) 123-4567"  value={contactData.telephone} onChange={handleChange}/>
+                    <input type="text" name="telephone" placeholder="e.g. +1 (555) 123-4567"  value={contactData.telephone} onChange={handleChange} disabled={loading}/>
                 </div>
                 <div className={styles.message_section}>
                     <label htmlFor="message" className={styles.label}>Message</label>
-                    <textarea type="text" name="message" placeholder="Your message..." value={contactData.message} onChange={handleChange}/>
+                    <textarea type="text" name="message" placeholder="Your message..." value={contactData.message} onChange={handleChange} disabled={loading}/>
                 </div>
-                <button type="submit" className={styles.submit_btn}>Submit</button>
+                <button type="submit" className={styles.submit_btn}>{loading ? 'Sending...' : 'Submit'}</button>
             </form>
+            <ToastContainer/>
         </section>
      );
 }
