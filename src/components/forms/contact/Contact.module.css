@@ -1,11 +1,12 @@
 .main{
     display: grid;
     grid-template-columns: 40% 60%;
-    gap: 5rem;
+    gap: 4rem;
     padding: 2rem;
     margin: 2rem 0;
     font-family: "poppins", Arial, Helvetica, sans-serif;
     justify-items: center;
+    overflow-x: hidden;
 }
 
 .header{
@@ -88,4 +89,67 @@ textarea{
     box-shadow: 0 4px 8px #00000033;
     background-color: #4bc7a4;
     transition: 0.4s;
+}
+
+@media (max-width: 1024px) and (min-width: 769px){
+    .main {
+        grid-template-columns: 1fr 1fr;
+        padding: 1.5rem;
+    }
+
+    .lead_capture{
+        max-width: 500px
+    }
+}
+
+@media (max-width: 768px){
+    .main{
+        padding: 1rem;
+        grid-template-columns: 1fr;
+    }
+
+    .header{
+        text-align: center;
+    }
+
+    .lead_capture{
+        max-width: 90%;
+    }
+
+    .submit_btn{
+        padding: 0.8rem;
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 480px){
+    .main{
+        padding: 0.5rem
+    }
+
+    .header h2{
+        font-size: 1.2rem;
+    }
+
+    .header p{
+        font-size: 0.9rem;
+    }
+
+    .leader_capture{
+        max-width: 100%;
+    }
+
+    .submit_btn{
+        padding: 0.6rem;
+        font-size: 0.9rem;
+    }
+
+    input, textarea{
+        font-size: 0.9rem;
+        padding: 0.4rem;
+    }
+
+    .name_section{
+        flex-direction: column;
+    }
 }
