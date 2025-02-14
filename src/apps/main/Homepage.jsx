@@ -1,3 +1,4 @@
+import Contact from "../../components/forms/contact/Contact";
 import Navbar from "../../components/navigation/navbar/Navbar";
 import {Helmet} from "react-helmet";
 
@@ -9,6 +10,7 @@ const Homepage = () => {
             </Helmet>
             <Navbar/>
             <h1>Homepage</h1>
+            <Contact/>
         </>
      );
 }
