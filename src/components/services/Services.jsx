@@ -61,7 +61,7 @@ const Services = () => {
             <img src={fifthService} width={150}/>
             </div>
             <div className={styles.card_body}>
-                <h4>Choose your preffered learning style</h4>
+                <h4>Choose your learning style</h4>
                 <p>We offer both private lessons and group classes to suit your needs. You can either select group interactions or one-on-one focus.</p>
             </div>
         </div>
