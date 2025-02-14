@@ -22,6 +22,7 @@
     justify-content: space-evenly;
     width: 50%;
     margin: 0 2rem;
+    flex-wrap: wrap;
 }
 
 .anchorlinks_list .list_item a{
@@ -44,12 +45,86 @@
 }
 
 .anchorlinks_list .list_item:last-child a{
-    background-color: #50B498 ;
+    background-color: #50B498;
     padding: 0.5rem 1.5rem;
     color: #F5F5F5;
     border-radius: 0.4rem;
+    display: flex;
+   flex-direction: row;
+   align-items: center;
+   justify-content: space-between;
+   gap: 0.5rem;
+   transition: 0.2s
 }
 
-.hamburger{
+.anchorlinks_list .list_item:last-child a:hover{
+    box-shadow: 0 4px 8px #00000033;
+    background-color: #4bc7a4;
+    transition: 0.4s;
+}
+
+.barIcon{
     display: none;
+}
+
+@media (max-width: 768px){
+
+    .appbar{
+        flex-direction: column;
+        background-color: #5d46c5;
+        padding: 0;
+    }
+
+    .logo_list{
+        width: 100%;
+        justify-content: space-around;
+    }
+
+    .barIcon{
+        display: block;
+        color: #F5F5F5
+    }
+
+    .anchorlinks_list.show{
+        display: flex !important;
+    }
+
+    .anchorlinks_list{
+        display: none;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        font-size: 1.1rem;
+        margin: 1rem auto;
+        padding: 1rem;
+    }
+
+    .anchorlinks_list .list_item{
+       margin: 0.5rem 0;
+       color: #F5F5F5
+    }
+
+    .anchorlinks_list .list_item a{
+        color: #F5F5F5
+     }
+
+    .anchorlinks_list .list_item:last-child{
+        margin: 2rem 0
+     }
+
+     .anchorlinks_list .list_item:last-child a{
+        font-size: 1.2rem;
+     }
+}
+
+
+@media (min-width: 769px) and  (max-width: 1024px){
+    .anchorlinks_list{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-evenly;
+        width: 60%;
+        margin: 0 2rem;
+        flex-wrap: nowrap;
+    }
 }
