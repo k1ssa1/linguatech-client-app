@@ -1,8 +1,27 @@
-# React + Vite
+# Project documentation
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Overview
 
-Currently, two official plugins are available:
+This project is a web appication built with **React 18** and **vanilla CSS modules** for the frontend. The project uses **Vite** as a the bundler providing fast build times.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+The client app fetches data from an **Express server** I've developped. It handles the request from the server side. Both applications are hosted on vercel.
+
+### Technologies Used
+-- **Frontend**: React 18, Vite, CSS modules
+-- **Backend**: Node.js with express, Axios
+-- **Hosting**: Vercel
+-- **API**: Custom RESTFUL API built with Express.js
+
+### Setup
+
+To get started with the project locally
+
+### Prerequisites
+-- **Node.js** (version 20)
+-- **npm** (version 10)
+
+Clone the repo and run server with npm run dev
+
+### Modular design with containers
+
+The app's homepage is structured using a container pattern. You will find the homepage inside "src/apps/main". 
