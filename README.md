@@ -11,6 +11,7 @@ The client app fetches data from an **Express server** I've developped. It handl
 -- **Backend**: Node.js with express, Axios
 -- **Hosting**: Vercel
 -- **API**: Custom RESTFUL API built with Express.js
+-- **Animation**: Custom animation using anime.js
 
 ### Setup
 
