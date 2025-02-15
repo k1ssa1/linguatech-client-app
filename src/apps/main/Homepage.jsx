@@ -10,7 +10,7 @@ const Homepage = () => {
         <>
             <Helmet>
                 <title>Top online English courses & coaching - Linguatech</title>
-                <meta name="description" content="Discover linguatech, a plateform offering effiecient English courses online. Discover our services and pricing. Read our latest testimonalis. Enroll in our program by filling our form." />
+                <meta name="description" content="Discover linguatech, a plateform offering effiecient English courses online. Discover our services and pricing. Enroll in our program by filling our form." />
                 <meta name="description" content="Best English courses, Online English coaching, English tutoring services, Enrollment form" />
             </Helmet>
             <Navbar/>

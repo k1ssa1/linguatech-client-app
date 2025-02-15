@@ -51,9 +51,6 @@ const Navbar = () => {
             <Link to="#pricing">pricing</Link>
         </li>
         <li className={styles.list_item}>
-            <Link to="#pricing">testimonials</Link>
-        </li>
-        <li className={styles.list_item}>
             <Link to="#contact"><FaEnvelope size={16}/>contact</Link>
         </li>
       </ul>
