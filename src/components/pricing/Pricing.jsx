@@ -74,7 +74,7 @@ const Pricing = () => {
      }, [])
 
     return ( 
-        <section ref={pricingRef} className={styles.main}>
+        <section ref={pricingRef} className={styles.main} id="pricing">
             <div className={styles.header}>
                 <h2 ref={pricingTitle} style={{opacity: 0}}>Our pricing</h2>
                 <h3 ref={pricingSubtitle} style={{opacity: 0}}>Start your language journey today!</h3>

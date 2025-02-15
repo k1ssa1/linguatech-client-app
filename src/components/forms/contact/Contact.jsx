@@ -103,7 +103,7 @@ const Contact = () => {
 
     return ( 
         <section className={styles.main}>
-            <div className={styles.header}>
+            <div className={styles.header} id ="contact">
                 <h2>Get in touch with us</h2>
                 <p>Got questions? We&apos;re here to help! Fill out the form below, and we&apos;ll send you all the infor you need to kickstar your learning experience.</p>
             </div>
