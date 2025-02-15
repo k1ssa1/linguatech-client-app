@@ -52,12 +52,12 @@ const Hero = () => {
   }, [])
 
   return (
-    <header className={styles.main}>
+    <header className={styles.main} id="hero">
       <section className={styles.content}>
         <h1 ref={ctaTitle} style={{opacity: 0}}>Unlock fluent English - Learn faster, speak confidently</h1>
         <p ref={ctaDesc} style={{opacity: 0}}>
           Master English with expert-led courses and flexible learning at your
-          pace. Join thousands of learners who trus us to guide them to fluency!
+          pace. Join thousands of learners who trust us to guide them to fluency!
         </p>
         <button ref={ctaBtn} style={{opacity: 0}}>
           <FaRocket /> Start your journey
