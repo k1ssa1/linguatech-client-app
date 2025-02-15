@@ -51,7 +51,7 @@ const Services = () => {
  }, [])
 
   return (
-    <section ref={sectionRef} className={styles.main}>
+    <section ref={sectionRef} className={styles.main} id="services">
       <div className={styles.header}>
         <h2 ref={titleRef} style={{opacity: 0}}>Why choose us ?</h2>
         <h3 ref={subtitleRef} style={{opacity: 0}}>Explore our language learning services</h3>
