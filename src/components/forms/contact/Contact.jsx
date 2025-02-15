@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 import styles from "./Contact.module.css"
 
@@ -16,12 +16,30 @@ const Contact = () => {
 
     const [loading, setLoading] = useState(false);
 
+    useEffect(() => {
+        const storedData = JSON.parse(localStorage.getItem('draft'));
+        if(storedData){
+            setContactData(storedData)
+        }
+
+        return () => {
+            localStorage.removeItem('draft')
+        }
+    }, [])
+
+    let timeOut;
+
     const handleChange = (e) => {
         const {name, value} = e.target;
         setContactData((prevState) => ({
             ...prevState,
             [name]: value
         }));
+
+        clearTimeout(timeOut);
+        timeOut = setTimeout(() => {
+            localStorage.setItem("draft", JSON.stringify(contactData))
+        }, 60000)
     };
 
     const handleSubmit = async (e) => {
