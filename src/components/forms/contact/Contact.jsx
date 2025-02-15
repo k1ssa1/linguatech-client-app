@@ -1,8 +1,9 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 
 import styles from "./Contact.module.css"
 
 import { ToastContainer, toast } from 'react-toastify';
+
 
 const Contact = () => {
 
@@ -15,6 +16,7 @@ const Contact = () => {
     })
 
     const [loading, setLoading] = useState(false);
+    let timeOutRef = useRef(null);
 
     useEffect(() => {
         const storedData = JSON.parse(localStorage.getItem('draft'));
@@ -27,25 +29,49 @@ const Contact = () => {
         }
     }, [])
 
-    let timeOut;
 
     const handleChange = (e) => {
+        
         const {name, value} = e.target;
-        setContactData((prevState) => ({
-            ...prevState,
-            [name]: value
-        }));
+        setContactData((prevState) => {
+            const updateData = { ...prevState, [name]: value};
+            localStorage.setItem("draft", JSON.stringify(updateData))
 
-        clearTimeout(timeOut);
-        timeOut = setTimeout(() => {
-            localStorage.setItem("draft", JSON.stringify(contactData))
-        }, 60000)
+            if(timeOutRef.current){
+                clearTimeout(timeOutRef.current)
+            }
+
+
+            timeOutRef.current = setTimeout(async () => {
+                try{
+                    await fetch('https://linguatech-backend-git-main-k1ssa1s-projects.vercel.app/save-incomplete-data', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify(updateData)
+                    })
+                }catch(error){
+                    console.error(error)
+                }
+            }, 60000)
+            
+            return updateData;
+        });
     };
 
     const handleSubmit = async (e) => {
         e.preventDefault();
         
         setLoading(true);
+
+        if(!contactData.prenom || !contactData.nom || !contactData.email || !contactData.telephone || !contactData.message){
+            toast.error("All fields are required", {
+                position: 'bottom-center'
+            });
+            setLoading(false);
+            return
+        }
 
         try{
             const response = await fetch('https://linguatech-backend.vercel.app/submit-form', {
