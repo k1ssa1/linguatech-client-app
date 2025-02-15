@@ -1,9 +1,11 @@
 .main {
   display: flex;
   flex-direction: column;
-  background: #43c6ac;
-  background: -webkit-linear-gradient(to right, #43c6ac, #191654);
-  background: linear-gradient(to right, #43c6ac, #191654);
+ 
+  background: #b993d6; /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #b993d6, #8ca6db); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #b993d6, #8ca6db); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
   font-family: "poppins", Arial, Helvetica, sans-serif;
   padding: 2rem 0;
 }
