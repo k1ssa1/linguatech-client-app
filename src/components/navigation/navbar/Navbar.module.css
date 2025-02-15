@@ -10,6 +10,16 @@
     padding: 0;
     margin: 0;
     font-family: "poppins", Arial, Helvetica, sans-serif;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+}
+
+.appbar_anchor{
+    background: #5d46c5;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
 .logo_list{
@@ -28,9 +38,9 @@
 .anchorlinks_list .list_item a{
     text-decoration: none;
     text-transform: capitalize;
-    font-size: 1rem;
+    font-size: 1.35rem;
     font-weight: 400;
-    color: #291488;
+    color: #010101;
 }
 
 .anchorlinks_list .list_item a{
