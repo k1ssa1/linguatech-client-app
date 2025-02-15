@@ -32,6 +32,16 @@ const Navbar = () => {
         }
     }, []);
 
+    const scrollToSection = (id) => {
+        const element = document.getElementById(id);
+        if(element){
+            element.scrollIntoView({
+                behavior: "smooth",
+                block: "start"
+            })
+        }
+    }
+
   return (
     <nav className={classNames(styles.appbar, {[styles.appbar_anchor]: isScrolled})} id="appBar">
       <div className={classNames(styles.logo_list)}>
@@ -42,16 +52,16 @@ const Navbar = () => {
       </div>
       <ul className={classNames(styles.anchorlinks_list, { [styles.show]: isMenuOpen})}>
         <li className={styles.list_item}>
-            <Link to="#hero">home</Link>
+            <Link to="#hero" onClick={(e) => scrollToSection("hero", e)}>home</Link>
         </li>
         <li className={styles.list_item}>
-            <Link to="#services">services</Link>
+            <Link to="#services" onClick={(e) => scrollToSection("services", e)}>services</Link>
         </li>
         <li className={styles.list_item}>
-            <Link to="#pricing">pricing</Link>
+            <Link to="#pricing" onClick={(e) => scrollToSection("pricing", e)}>pricing</Link>
         </li>
         <li className={styles.list_item}>
-            <Link to="#contact"><FaEnvelope size={16}/>contact</Link>
+            <Link to="#contact" onClick={(e) => scrollToSection("contact", e)}><FaEnvelope size={16}/>contact</Link>
         </li>
       </ul>
     </nav>
