@@ -4,6 +4,7 @@ import {Helmet} from "react-helmet";
 import Services from "../../components/services/Services";
 import Hero from "../../components/hero/Hero";
 import Pricing from "../../components/pricing/Pricing";
+import Testimonials from "../../components/testimonials/Testimonials";
 
 const Homepage = () => {
     return ( 
@@ -17,6 +18,7 @@ const Homepage = () => {
             <Hero/>
             <Services/>
             <Pricing/>
+            <Testimonials/>
             <Contact/>
         </>
      );
