@@ -15,7 +15,7 @@
     top: 0;
     left: 0;
     z-index: 1000;
-    height: 10%;
+    height: 10vh;
 }
 
 .appbar_anchor{
@@ -84,6 +84,7 @@
         flex-direction: column;
         background-color: #5d46c5;
         padding: 0;
+        height: auto
     }
 
     .logo_list{
