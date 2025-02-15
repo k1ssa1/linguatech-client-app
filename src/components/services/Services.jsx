@@ -17,6 +17,7 @@ const Services = () => {
   const desceRef = useRef(null);
 
  useEffect(() => {
+    
     const observer = new IntersectionObserver((entries) => {
         const entry = entries[0];
         if (entry.isIntersecting && !hasAnimated.current) {
@@ -39,7 +40,7 @@ const Services = () => {
           })
         }
       },
-      {threshold: 0.3}
+      {threshold: [0, 0.3, 0.6, 1]}
     );
 
     if(sectionRef.current){
